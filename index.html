@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>A Universe Made For Bống</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Dancing+Script:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animation.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="flash"></div>
+<div id="loader"><p>Đang thắp sao…</p></div>
+
+<div id="hud">
+  <button id="music-btn" aria-label="Bật/tắt nhạc">♪</button>
+  <input id="vol" type="range" min="0" max="1" step=".05" value=".5" aria-label="Âm lượng">
+  <button id="motion-btn" aria-pressed="true">Hiệu ứng: Bật</button>
+  <span id="music-note" role="status"></span>
+</div>
+
+<main>
+  <section class="scene center" id="s-password">
+    <div class="stack">
+      <p class="lead">Em Tí đây...</p>
+      <p>Quà sinh nhật cho chị nhá 😘.</p>
+      <p>Mở khóa đi</p>
+      <form id="pw-form" class="card" autocomplete="off" novalidate>
+        <h2>Birthday</h2>
+        <div class="field">
+          <input id="pw" name="bday" type="password" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="off" aria-label="Ngày sinh DD/MM/YYYY">
+          <button type="button" id="pw-eye" class="ico" aria-label="Hiện hoặc ẩn ngày">👁</button>
+        </div>
+        <p id="pw-msg" class="msg" role="alert"></p>
+        <button class="btn" type="submit">UNLOCK THE UNIVERSE</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="scene center" id="s-welcome">
+    <div class="stack">
+      <h1>Chào mừng đến với vũ trụ Bống Bống bang bang.</h1>
+      <p class="script">Gà.</p>
+      <button class="btn" id="welcome-go">Bước vào vũ trụ</button>
+    </div>
+  </section>
+
+  <section class="scene" id="s-gift">
+    <div class="stack"><h2>A gift, for you.</h2></div>
+    <div class="stack">
+      <button class="btn" id="gift-open">Mở Quà</button>
+      <div id="gift-msg" class="reveal">
+        <h1>HAPPY BIRTHDAY, CHỊ YÊUUU!</h1>
+        <p class="script">Cho nì</p>
+        <button class="btn ghost" id="gift-next">Tiếp tục ✦</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" id="s-gallery">
+    <div class="stack"><h2>Tặng Tằng</h2><p>Tằng Tăng</p></div>
+    <div class="stack"><p class="hint">Kéo qua lại để xoay ảnh · Chạm vào ảnh để xem</p><button class="btn ghost" id="gal-next">Tiếp tục ✦</button></div>
+  </section>
+
+  <section class="scene" id="s-cake">
+    <div class="stack"><h2>Ước muốn!</h2><p>Nhắm mắt lại và ước 1 thứ gì đó đii.</p></div>
+    <div class="stack">
+      <button class="btn" id="wish">ƯỚC</button>
+      <div id="wish-msg" class="reveal">
+        <p class="script big">há há há. Ông tiên Tí đây, chúc điều ước của con sẽ sớm hiện thực.</p>
+        <button class="btn ghost" id="cake-next">Đọc thư ✦</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" id="s-letter">
+    <div class="stack"><h2>E HÈM...... .</h2></div>
+    <div class="stage">
+      <div class="env" id="env"><div class="flap"></div><button id="seal" class="seal" aria-label="Mở thư">★</button></div>
+      <div class="paper" id="paper" tabindex="0"><div id="letter-text"></div></div>
+    </div>
+    <div class="stack"><p class="hint" id="letter-hint">Chạm vào dấu niêm phong ✦</p><button class="btn ghost reveal" id="letter-next">Tiếp tục ✦</button></div>
+  </section>
+
+  <section class="scene center" id="s-finale">
+    <div class="stack">
+      <h1>HÁP PI BỚT ĐÂY</h1>
+      <p class="lead">GÀ</p>
+      <p class="script big">SINH NHẬT VUI VẺ NHA NHÓC</p>
+      <button class="btn" id="replay">XEM LẠI</button>
+    </div>
+  </section>
+</main>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Xem ảnh">
+  <button id="lb-x" class="ico" aria-label="Đóng">✕</button>
+  <button id="lb-p" class="ico nav" aria-label="Ảnh trước">‹</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button id="lb-n" class="ico nav" aria-label="Ảnh sau">›</button>
+</div>
+</body>
+</html>
